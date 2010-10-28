@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mvc-config SYSTEM "mvc.dtd">
+<mvc-config>
+  <command-mappings>
+    <!--
+      Si el controlador recibe el comando Bienvenido
+      se pasa el control (forward) a la página /paginas/Bienvenido.jsp
+    -->
+    <command path="/Bienvenido" forward="/paginas/Bienvenido.jsp"/>
+    <!--
+      Si el controlador recibe el comando Login
+      se pasa el control (forward) a la página /paginas/Login.jsp
+    --> 
+    <command path="/Login" forward="/paginas/Login.jsp"/>
+    <!--
+      Si el controlador recibe el comando LoginSubmit
+      1. Instancia un objeto de la clase app.LoginCommand
+      2. Ejecuta el método execute sobre la instancia creada
+      3. Si el método retorna el String “entrar” se pasa el control
+         (forward) a la página /paginas/Principal.jsp
+      4. Si el método retorna el String “error” se pasa el control
+         (forward) a la página /paginas/Login.jsp
+    -->
+    <command path="/LoginSubmit" type="app.LoginCommand">
+      <forward name="entrar" path="/paginas/Principal.jsp"/>
+      <forward name="error" path="/paginas/Login.jsp"/>
+    </command>
+    <!--
+      Si el controlador recibe el comando Logout
+      1. Instancia un objeto de la clase app.LogoutCommand
+      2. Ejecuta el método execute sobre la instancia creada
+      3. Si el método retorna el String “ok” se pasa el control
+         (forward) a la página /paginas/Login.jsp
+    -->
+    <command path="/Logout" type="app.LogoutCommand">
+      <forward name="ok" path="/paginas/Login.jsp"/>
+    </command>
+  </command-mappings>
+</mvc-config>
