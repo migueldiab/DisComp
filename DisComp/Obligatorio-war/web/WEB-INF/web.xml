@@ -6,7 +6,11 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.cmd</url-pattern>
+        <url-pattern>/Bienvenido</url-pattern>
+        <url-pattern>/LoginSubmit</url-pattern>
+        <url-pattern>/Login</url-pattern>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -16,4 +20,8 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/lost.jsp</location>
+    </error-page>
 </web-app>

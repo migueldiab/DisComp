@@ -13,21 +13,6 @@
     <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
-        <mkdir dir="build/generated/jaxbCache/mvcXml"/>
-        <xjc package="edu.ort.discomp.xml.mvc" destdir="build/generated/jaxbCache/mvcXml" catalog="catalog.xml">
-            <classpath>
-                <pathelement location="${src.dir}"/>
-                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
-            </classpath>
-            <arg value="-dtd"/>
-            <arg value="-verbose"/>
-            <schema file="src/conf/xml-resources/jaxb/mvcXml/mvc.dtd"/>
-            <depends file="src/conf/xml-resources/jaxb/mvcXml/mvc.dtd"/>
-            <produces dir="build/generated/jaxbCache/mvcXml"/>
-        </xjc>
-        <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/mvcXml"/>
-        </copy>
         <!--*** Web project javac macro does not support sourcepath attribute, so do not pass "sourcepath=${src.dir}"-->
     </target>
 </project>

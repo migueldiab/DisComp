@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Users/migueldiab.lorien/Documents/Ort/DisComp/Obligatorio/DisComp/OhmVC/../Obligatorio-war/web/WEB-INF/mvc.xml" uri="xml-resources/jaxb/mvcConfig/mvc.xml"/>
+    <system systemId="file:/D:/Users/migueldiab.lorien/Documents/Ort/DisComp/Obligatorio/DisComp/OhmVC/../Obligatorio-war/web/WEB-INF/mvc.dtd" uri="xml-resources/jaxb/mvcConfig/mvc.dtd"/>
+</catalog>

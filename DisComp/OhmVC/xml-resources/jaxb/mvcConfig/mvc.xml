@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mvc-config SYSTEM "mvc.dtd">
 <mvc-config>
   <command-mappings>
     <!--
       Si el controlador recibe el comando Bienvenido
       se pasa el control (forward) a la pagina /paginas/Bienvenido.jsp
     -->
-    <command path="/Bienvenido" url="/paginas/Bienvenido.jsp"/>
+    <command path="/Bienvenido" forward="/paginas/Bienvenido.jsp"/>
     <!--
       Si el controlador recibe el comando Login
       se pasa el control (forward) a la pagina /paginas/Login.jsp
     --> 
-    <command path="/Login" url="/paginas/Login.jsp"/>
+    <command path="/Login" forward="/paginas/Login.jsp"/>
     <!--
       Si el controlador recibe el comando LoginSubmit
       1. Instancia un objeto de la clase app.LoginCommand
