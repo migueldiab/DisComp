@@ -1,0 +1,3 @@
+<xml-java-binding-schema> 
+    <element name="mvc-config" type="class" root="true" /> 
+</xml-java-binding-schema>

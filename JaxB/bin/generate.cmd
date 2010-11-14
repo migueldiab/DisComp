@@ -1,0 +1,1 @@
+java -jar ..\lib\jaxb-xjc.jar -dtd mvc.dtd -p edu.ort.discomp.xml.jaxb -verbose
