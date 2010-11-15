@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/D:/Users/migueldiab/Documents/NetBeansProjects/DisComp/Obligatorio/Obligatorio-war/../../mvc.xml" uri="src/conf/xml-resources/jaxb/mvc/mvc.xml"/>
-    <system systemId="file:/D:/Users/migueldiab/Documents/NetBeansProjects/DisComp/Obligatorio/Obligatorio-war/../../mvc.dtd" uri="src/conf/xml-resources/jaxb/mvc/mvc.dtd"/>
-    <system systemId="file:/D:/Users/migueldiab/Documents/NetBeansProjects/DisComp/Obligatorio/Obligatorio-war/web/WEB-INF/mvc.xml" uri="src/conf/xml-resources/jaxb/mvcXml/mvc.xml"/>
-    <system systemId="file:/D:/Users/migueldiab/Documents/NetBeansProjects/DisComp/Obligatorio/Obligatorio-war/web/WEB-INF/mvc.dtd" uri="src/conf/xml-resources/jaxb/mvcXml/mvc.dtd"/>
-    <system systemId="file:/D:/Users/migueldiab.lorien/Documents/Ort/DisComp/Obligatorio/DisComp/Obligatorio-war/web/WEB-INF/mvc.dtd" uri="src/conf/xml-resources/jaxb/mvcXml/mvc.dtd"/>
-</catalog>
