@@ -24,4 +24,10 @@
         <error-code>404</error-code>
         <location>/lost.jsp</location>
     </error-page>
+    <ejb-local-ref>
+        <ejb-ref-name>UsuarioFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>dao.UsuarioFacadeLocal</local>
+        <ejb-link>CA_JPA.jar#UsuarioFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

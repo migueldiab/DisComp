@@ -11,4 +11,9 @@
         <property name="driverClass" value="org.apache.derby.jdbc.ClientDriver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="CA_JNDI" object-type="user" pool-name="derby_net_OhmVC_ohmvcPool"/>
+    <admin-object-resource enabled="true" jndi-name="jms/usuario"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="PhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/usuarioFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/usuarioFactory" pool-name="jms/usuarioFactoryPool"  />
 </resources>
