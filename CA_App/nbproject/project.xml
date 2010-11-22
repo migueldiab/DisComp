@@ -12,10 +12,6 @@
                     <path-in-war>/</path-in-war>
                 </library>
                 <library>
-                    <file>${reference.OhmVC_Framework.j2ee-module-car}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library>
                     <file>${reference.CA_JPA.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
@@ -37,14 +33,6 @@
                 <target>dist-ear</target>
                 <clean-target>clean-ear</clean-target>
                 <id>dist-ear</id>
-            </reference>
-            <reference>
-                <foreign-project>OhmVC_Framework</foreign-project>
-                <artifact-type>j2ee_ear_archive</artifact-type>
-                <script>build.xml</script>
-                <target>dist-ear</target>
-                <clean-target>clean-ear</clean-target>
-                <id>j2ee-module-car</id>
             </reference>
         </references>
     </configuration>

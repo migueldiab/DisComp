@@ -3,11 +3,11 @@
   <persistence-unit name="CA_PU" transaction-type="JTA">
     <provider>oracle.toplink.essentials.PersistenceProvider</provider>
     <jta-data-source>jdbc/ohmVC</jta-data-source>
+    <class>dao.Usuario</class>
     <class>dao.Bitacora</class>
     <class>dao.Contacto</class>
     <class>dao.Credencial</class>
     <class>dao.Direccion</class>
-    <class>dao.Usuario</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="toplink.ddl-generation" value="create-tables"/>

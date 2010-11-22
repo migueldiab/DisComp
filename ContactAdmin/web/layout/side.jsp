@@ -8,6 +8,5 @@ Bienvenido Usuario
 <br/>
 <h3>Opciones</h3>
 <ul>
-  <li><a href="action?action=listarIncidente">Listar Incidentes</a></li>
-</ul>
-      
+  <li><a href="./Usuarios.cmd">Administrar Usuarios</a></li>
+</ul>  
