@@ -5,7 +5,10 @@
 
 package dao;
 
+import dao.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,27 +30,37 @@ public class DireccionFacade implements DireccionFacadeLocal {
 
   @Override
   public void create(Direccion direccion) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    direccionJPA.create(direccion);
   }
 
   @Override
   public void edit(Direccion direccion) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      direccionJPA.edit(direccion);
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(DireccionFacade.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (Exception ex) {
+      Logger.getLogger(DireccionFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public void remove(Direccion direccion) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      direccionJPA.destroy(direccion.getId());
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(DireccionFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public Direccion find(Object id) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return direccionJPA.findDireccion((Integer) id);
   }
 
   @Override
   public List<Direccion> findAll() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return direccionJPA.findDireccionEntities();
   }
 
   @Override
@@ -57,7 +70,7 @@ public class DireccionFacade implements DireccionFacadeLocal {
 
   @Override
   public int count() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return direccionJPA.findDireccionEntities().size();
   }
 
 }

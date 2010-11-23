@@ -5,7 +5,10 @@
 
 package dao;
 
+import dao.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,27 +30,37 @@ public class BitacoraFacade implements BitacoraFacadeLocal {
 
   @Override
   public void create(Bitacora bitacora) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    bitacoraJPA.create(bitacora);
   }
 
   @Override
   public void edit(Bitacora bitacora) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      bitacoraJPA.edit(bitacora);
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(BitacoraFacade.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (Exception ex) {
+      Logger.getLogger(BitacoraFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public void remove(Bitacora bitacora) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      bitacoraJPA.destroy(bitacora.getId());
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(BitacoraFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public Bitacora find(Object id) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return bitacoraJPA.findBitacora((Integer) id);
   }
 
   @Override
   public List<Bitacora> findAll() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return bitacoraJPA.findBitacoraEntities();
   }
 
   @Override
@@ -57,7 +70,7 @@ public class BitacoraFacade implements BitacoraFacadeLocal {
 
   @Override
   public int count() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return bitacoraJPA.findBitacoraEntities().size();
   }
 
 }

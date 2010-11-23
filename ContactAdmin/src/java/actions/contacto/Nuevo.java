@@ -18,7 +18,7 @@ public class Nuevo extends WebAction {
           throws ServletException {
 
 		try {
-			request.setAttribute( "view", "/usuario/nuevo.jsp" );
+			request.setAttribute( "view", "/contacto/nuevo.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

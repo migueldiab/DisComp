@@ -1,11 +1,9 @@
 package actions.contacto;
 
-import dao.Usuario;
+import dao.Contacto;
 import edu.ort.discomp.framework.FrontController;
 import edu.ort.discomp.framework.WebAction;
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,30 +20,24 @@ public class Guardar extends WebAction {
           throws ServletException {
 
 		try {
-      Usuario unUsuario = new Usuario();
+      Contacto unContacto = new Contacto();
       if (request.getParameterMap().containsKey("id")) {
-        unUsuario = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
+        unContacto = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
       }
       final String nombre  =  request.getParameter("nombre");
       final String apellido  =  request.getParameter("apellido");
-      final int year  =  Integer.parseInt(request.getParameter("year"));
-      final int month  =  Integer.parseInt(request.getParameter("month"));
-      final int date  =  Integer.parseInt(request.getParameter("date"));
-      Calendar fdn = Calendar.getInstance();
-      fdn.set(year, month, date);
-      unUsuario.setNombre(nombre);
-      unUsuario.setApellido(apellido);
-      unUsuario.setFechaDeNacimiento(fdn.getTime());
+      unContacto.setNombre(nombre);
+      unContacto.setApellido(apellido);
       if (request.getParameterMap().containsKey("id")) {
-        ContactoContext.getInstace().edit(unUsuario);
+        ContactoContext.getInstace().edit(unContacto);
       } else {
-        ContactoContext.getInstace().create(unUsuario);
+        ContactoContext.getInstace().create(unContacto);
       }
 
-			request.setAttribute( "usuarios", ContactoContext.getInstace().findAll() );
+			request.setAttribute( "contactos", ContactoContext.getInstace().findAll() );
 
 			// forward request on to the appropriate JSP page to display the results
-			request.setAttribute( "view", "/usuario/listar.jsp" );
+			request.setAttribute( "view", "/contacto/listar.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

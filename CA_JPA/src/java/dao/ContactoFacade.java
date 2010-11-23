@@ -5,7 +5,10 @@
 
 package dao;
 
+import dao.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,27 +30,37 @@ public class ContactoFacade implements ContactoFacadeLocal {
 
   @Override
   public void create(Contacto contacto) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    contactoJPA.create(contacto);
   }
 
   @Override
   public void edit(Contacto contacto) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      contactoJPA.edit(contacto);
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(ContactoFacade.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (Exception ex) {
+      Logger.getLogger(ContactoFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public void remove(Contacto contacto) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    try {
+      contactoJPA.destroy(contacto.getId());
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(ContactoFacade.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
 
   @Override
   public Contacto find(Object id) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return contactoJPA.findContacto((Integer) id);
   }
 
   @Override
   public List<Contacto> findAll() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return contactoJPA.findContactoEntities();
   }
 
   @Override
@@ -57,7 +70,12 @@ public class ContactoFacade implements ContactoFacadeLocal {
 
   @Override
   public int count() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return contactoJPA.findContactoEntities().size();
+  }
+
+  @Override
+  public Contacto findById(int id) {
+    return contactoJPA.findContacto(id);
   }
 
 }

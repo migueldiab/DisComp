@@ -18,9 +18,9 @@ public class Listar extends WebAction {
           throws ServletException {
 
 		try {
-			request.setAttribute("usuarios", ContactoContext.getInstace().findAll());
+			request.setAttribute("contactos", ContactoContext.getInstace().findAll());
 			// forward request on to the appropriate JSP page to display the results
-			request.setAttribute( "view", "/usuario/listar.jsp" );
+			request.setAttribute( "view", "/contacto/listar.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

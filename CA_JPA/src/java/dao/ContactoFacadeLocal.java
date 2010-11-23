@@ -29,4 +29,6 @@ public interface ContactoFacadeLocal {
 
   int count();
 
+  public Contacto findById(int parseInt);
+
 }

@@ -49,7 +49,7 @@ public class UsuarioFacade implements UsuarioFacadeLocal {
 
   @Override
   public int count() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return usuarioJPA.findUsuarioEntities().size();
   }
 
   @Override
