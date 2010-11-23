@@ -139,5 +139,11 @@ public class Contacto {
     this.direcciones = direcciones;
   }
 
+  @Override
+  public String toString() {
+    return apellido + ", " + nombre;
+  }
+
+
   
 }

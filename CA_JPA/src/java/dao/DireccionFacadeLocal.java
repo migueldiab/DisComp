@@ -29,4 +29,6 @@ public interface DireccionFacadeLocal {
 
   int count();
 
+  public Direccion findById(int parseInt);
+
 }

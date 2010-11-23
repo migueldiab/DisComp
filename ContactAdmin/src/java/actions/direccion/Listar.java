@@ -1,4 +1,4 @@
-package actions.contacto;
+package actions.direccion;
 
 import edu.ort.discomp.framework.FrontController;
 import edu.ort.discomp.framework.WebAction;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author migueldiab
  */
-public class Nuevo extends WebAction {
+public class Listar extends WebAction {
 
   @Override
   public String execute
@@ -18,7 +18,8 @@ public class Nuevo extends WebAction {
           throws ServletException {
 
 		try {
-      request.setAttribute( "view", "/contacto/nuevo.jsp" );
+			request.setAttribute("direcciones", DireccionContext.getInstace().findAll());
+			request.setAttribute( "view", "/direccion/listar.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

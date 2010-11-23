@@ -1,5 +1,6 @@
 package actions.contacto;
 
+import dao.Contacto;
 import edu.ort.discomp.framework.FrontController;
 import edu.ort.discomp.framework.WebAction;
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author migueldiab
  */
-public class Nuevo extends WebAction {
+public class AgregarDireccion extends WebAction {
 
   @Override
   public String execute
@@ -18,7 +19,9 @@ public class Nuevo extends WebAction {
           throws ServletException {
 
 		try {
-      request.setAttribute( "view", "/contacto/nuevo.jsp" );
+			request.setAttribute( "view", "/contacto/nuevaDireccion.jsp" );
+      Contacto unContacto = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("idContacto")));
+      request.setAttribute("contacto", unContacto);
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

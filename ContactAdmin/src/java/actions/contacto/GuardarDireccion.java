@@ -1,6 +1,9 @@
 package actions.contacto;
 
+import actions.direccion.*;
+import actions.contacto.ContactoContext;
 import dao.Contacto;
+import dao.Direccion;
 import edu.ort.discomp.framework.FrontController;
 import edu.ort.discomp.framework.WebAction;
 import java.util.Calendar;
@@ -12,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author migueldiab
  */
-public class Guardar extends WebAction {
+public class GuardarDireccion extends WebAction {
 
   @Override
   public String execute
@@ -20,25 +23,24 @@ public class Guardar extends WebAction {
           throws ServletException {
 
 		try {
-      Contacto unContacto = new Contacto();
+      Direccion unDireccion = new Direccion();
+      Contacto unContacto = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("idContacto")));
+      unDireccion.setContacto(unContacto);
       if (request.getParameterMap().containsKey("id")) {
-        unContacto = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
+        unDireccion = DireccionContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
       }
-      unContacto.setNombre(request.getParameter("nombre"));
-      unContacto.setApellido(request.getParameter("apellido"));
-      unContacto.setEmail(request.getParameter("email"));
-      unContacto.setMovil(request.getParameter("movil"));
-      unContacto.setTelefono(request.getParameter("telefono"));
+      unDireccion.setCalle(request.getParameter("calle"));
+      unDireccion.setNumero(request.getParameter("numero"));
       if (request.getParameterMap().containsKey("id")) {
-        ContactoContext.getInstace().edit(unContacto);
+        DireccionContext.getInstace().edit(unDireccion);
       } else {
-        ContactoContext.getInstace().create(unContacto);
+        DireccionContext.getInstace().create(unDireccion);
       }
 
-			request.setAttribute( "contactos", ContactoContext.getInstace().findAll() );
+			request.setAttribute("contacto", unContacto);
 
 			// forward request on to the appropriate JSP page to display the results
-			request.setAttribute( "view", "/contacto/listar.jsp" );
+			request.setAttribute( "view", "/contacto/editar.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

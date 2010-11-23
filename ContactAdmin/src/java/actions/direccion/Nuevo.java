@@ -1,4 +1,4 @@
-package actions.contacto;
+package actions.direccion;
 
 import edu.ort.discomp.framework.FrontController;
 import edu.ort.discomp.framework.WebAction;
@@ -18,7 +18,8 @@ public class Nuevo extends WebAction {
           throws ServletException {
 
 		try {
-      request.setAttribute( "view", "/contacto/nuevo.jsp" );
+			request.setAttribute( "view", "/direccion/nuevo.jsp" );
+			request.setAttribute("idContacto", request.getParameter("idContacto"));
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {

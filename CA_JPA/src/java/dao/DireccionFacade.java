@@ -73,4 +73,9 @@ public class DireccionFacade implements DireccionFacadeLocal {
     return direccionJPA.findDireccionEntities().size();
   }
 
+  @Override
+  public Direccion findById(int id) {
+    return direccionJPA.findDireccion(id);
+  }
+
 }
