@@ -36,7 +36,6 @@ public class UsuarioJpaController {
     EntityManager em = null;
     try {
       em = getEntityManager();
-      em.getTransaction().begin();
       Credencial credencial = usuario.getCredencial();
       if (credencial != null) {
         credencial = em.getReference(credencial.getClass(), credencial.getLogin());
@@ -67,7 +66,6 @@ public class UsuarioJpaController {
           oldUsuarioOfContactosContacto = em.merge(oldUsuarioOfContactosContacto);
         }
       }
-      em.getTransaction().commit();
     } finally {
       if (em != null) {
         em.close();
@@ -79,7 +77,6 @@ public class UsuarioJpaController {
     EntityManager em = null;
     try {
       em = getEntityManager();
-      em.getTransaction().begin();
       Usuario persistentUsuario = em.find(Usuario.class, usuario.getId());
       Credencial credencialOld = persistentUsuario.getCredencial();
       Credencial credencialNew = usuario.getCredencial();
@@ -127,7 +124,6 @@ public class UsuarioJpaController {
           }
         }
       }
-      em.getTransaction().commit();
     } catch (Exception ex) {
       String msg = ex.getLocalizedMessage();
       if (msg == null || msg.length() == 0) {
@@ -148,7 +144,6 @@ public class UsuarioJpaController {
     EntityManager em = null;
     try {
       em = getEntityManager();
-      em.getTransaction().begin();
       Usuario usuario;
       try {
         usuario = em.getReference(Usuario.class, id);
@@ -167,7 +162,6 @@ public class UsuarioJpaController {
         contactosContacto = em.merge(contactosContacto);
       }
       em.remove(usuario);
-      em.getTransaction().commit();
     } finally {
       if (em != null) {
         em.close();

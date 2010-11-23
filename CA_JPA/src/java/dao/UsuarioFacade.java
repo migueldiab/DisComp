@@ -68,4 +68,9 @@ public class UsuarioFacade implements UsuarioFacadeLocal {
     }
   }
 
+  @Override
+  public Usuario findById(Integer id) {
+    return usuarioJPA.findUsuario(id);
+  }
+
 }

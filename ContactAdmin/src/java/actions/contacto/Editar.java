@@ -1,4 +1,4 @@
-package actions.usuario;
+package actions.contacto;
 
 import dao.Usuario;
 import dao.UsuarioFacade;
@@ -27,7 +27,7 @@ public class Editar extends WebAction {
           throws ServletException {
     Usuario unUsuario = null;
     if (request.getParameterMap().containsKey("id")) {
-      unUsuario = UsuarioContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
+      unUsuario = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
     }
     if (unUsuario==null) {
       forward( servlet, request, response, "/error.jsp" );

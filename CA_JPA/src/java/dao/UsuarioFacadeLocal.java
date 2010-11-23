@@ -29,4 +29,6 @@ public interface UsuarioFacadeLocal {
 
   int count();
 
+  public Usuario findById(Integer parameter);
+
 }

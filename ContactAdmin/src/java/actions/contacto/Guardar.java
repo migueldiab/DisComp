@@ -1,4 +1,4 @@
-package actions.usuario;
+package actions.contacto;
 
 import dao.Usuario;
 import edu.ort.discomp.framework.FrontController;
@@ -24,7 +24,7 @@ public class Guardar extends WebAction {
 		try {
       Usuario unUsuario = new Usuario();
       if (request.getParameterMap().containsKey("id")) {
-        unUsuario = UsuarioContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
+        unUsuario = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("id")));
       }
       final String nombre  =  request.getParameter("nombre");
       final String apellido  =  request.getParameter("apellido");
@@ -37,12 +37,12 @@ public class Guardar extends WebAction {
       unUsuario.setApellido(apellido);
       unUsuario.setFechaDeNacimiento(fdn.getTime());
       if (request.getParameterMap().containsKey("id")) {
-        UsuarioContext.getInstace().edit(unUsuario);
+        ContactoContext.getInstace().edit(unUsuario);
       } else {
-        UsuarioContext.getInstace().create(unUsuario);
+        ContactoContext.getInstace().create(unUsuario);
       }
 
-			request.setAttribute( "usuarios", UsuarioContext.getInstace().findAll() );
+			request.setAttribute( "usuarios", ContactoContext.getInstace().findAll() );
 
 			// forward request on to the appropriate JSP page to display the results
 			request.setAttribute( "view", "/usuario/listar.jsp" );
