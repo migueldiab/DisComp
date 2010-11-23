@@ -31,6 +31,7 @@ public class GuardarDireccion extends WebAction {
       }
       unDireccion.setCalle(request.getParameter("calle"));
       unDireccion.setNumero(request.getParameter("numero"));
+      unDireccion.setTipo(Direccion.TipoDireccion.valueOf(request.getParameter("tipo")));
       if (request.getParameterMap().containsKey("id")) {
         DireccionContext.getInstace().edit(unDireccion);
       } else {

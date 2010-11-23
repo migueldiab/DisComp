@@ -1,6 +1,7 @@
 package dao;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +20,7 @@ public class Direccion {
   private String numero;
   @ManyToOne
   private Contacto contacto;
+  @Enumerated
   private TipoDireccion tipo;
 
   /**
@@ -94,6 +96,12 @@ public class Direccion {
   public enum TipoDireccion {
     CASA, TRABAJO, OTRA
   }
+
+  @Override
+  public String toString() {
+    return calle + " #" + numero + " (" + tipo + ")";
+  }
+
 
   
 }

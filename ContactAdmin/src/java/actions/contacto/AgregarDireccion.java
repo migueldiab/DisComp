@@ -19,9 +19,9 @@ public class AgregarDireccion extends WebAction {
           throws ServletException {
 
 		try {
-			request.setAttribute( "view", "/contacto/nuevaDireccion.jsp" );
       Contacto unContacto = ContactoContext.getInstace().findById(Integer.parseInt(request.getParameter("idContacto")));
       request.setAttribute("contacto", unContacto);
+			request.setAttribute( "view", "/contacto/nuevaDireccion.jsp" );
 			forward( servlet, request, response, "/index.jsp" );
 		}
 		catch (Exception e) {
