@@ -16,9 +16,13 @@ public class HWServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     try {
-      resp.setContentType("text/plain");
+      resp.setContentType("text/html");
       PrintWriter writer = resp.getWriter();
-      writer.println("Hola Mundo!");
+      writer.println("<html>");
+      writer.println("<h4>Hola Mundo!</h4>");
+      writer.println("</html>");
+      String initParameter = getInitParameter("monedaDefecto");
+      writer.println("La moneda por defecto es : " + initParameter);
     } catch (Exception e) {
       e.printStackTrace();
     }

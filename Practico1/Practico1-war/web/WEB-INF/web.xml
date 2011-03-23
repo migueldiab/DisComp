@@ -3,6 +3,10 @@
     <servlet>
         <servlet-name>Practico1</servlet-name>
         <servlet-class>edu.ort.discomp.practico1.HWServlet</servlet-class>
+        <init-param>
+            <param-name>monedaDefecto</param-name>
+            <param-value>UYP</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Practico1</servlet-name>
